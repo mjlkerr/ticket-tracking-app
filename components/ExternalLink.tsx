@@ -10,6 +10,7 @@ export function ExternalLink({ href, ...rest }: Props) {
     <Link
       target="_blank"
       {...rest}
+      // @ts-expect-error: href is not a valid prop for Link
       href={href}
       onPress={async (event) => {
         if (Platform.OS !== 'web') {
