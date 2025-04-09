@@ -3,13 +3,14 @@
     "name": "ticket-tracking-app",
     "slug": "ticket-tracking-app",
     "version": "1.0.0",
-    "orientation": "portrait",
+    "orientation": "default",
     "icon": "./assets/images/icon.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "requiresFullScreen": true
     },
     "android": {
       "adaptiveIcon": {
@@ -31,8 +32,13 @@
           "imageWidth": 200,
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
+        }],
+        [
+        "expo-screen-orientation",
+        {
+          "initialOrientation": "DEFAULT"
         }
-      ]
+        ]
     ],
     "experiments": {
       "typedRoutes": true
