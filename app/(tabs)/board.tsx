@@ -4,21 +4,42 @@ import { View, Text } from 'react-native';
 import { getBoard } from '@/requests/getBoard';
 import { BoardContext } from '@/contexts/boardContext';
 import { TaskBoard } from '@/components/TaskBoard';
+import { Header } from '@/components/Header';
+import { Column } from '@/components/Column';
 
-type Board = {
+export type ColumnType = {
+  Name: string;
+  Position: number;
+}
+
+export type TicketType = {
+  Name: string;
+  Position: number;
+  Board_Id: number;
+  Ticket_Id: number;
+  Description: string;
+}
+
+export type BoardType = {
   data: string;
+  Sprint: number;
+  Board_Name: string;
+  BoardDescription: string;
+  description: string;
+  Columns: ColumnType[];
+  Tickets: TicketType[];
 }
 const Board = () => {
 
-  const [board, setBoard] = useState({} as Board);
+  const [board, setBoard] = useState({} as BoardType);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchBoard = async () => {
       try {
         const boardData = await getBoard();
-        console.log('Fetched board data:', boardData);
-        setBoard(boardData);
+       // console.log('Fetched board data:', boardData);
+        setBoard(boardData as BoardType);
         setLoading(false);
       } catch (error) {
         // Handle error here and log it
@@ -31,7 +52,8 @@ const Board = () => {
 
   return (
     <BoardContext.Provider value={board}>
-      <TaskBoard />
+      <Header />
+      <Column />
     </BoardContext.Provider>
   );
 };
