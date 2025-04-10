@@ -10,7 +10,7 @@ export const Header = () => {
             flexDirection: 'row', 
             justifyContent: 'flex-start', 
             backgroundColor: '#f8f8f8',
-            maxHeight: '15%',
+            minHeight: '15%',
             paddingTop: 25,
             marginLeft: 50,
              }}>

@@ -1,11 +1,12 @@
 import React, { useEffect, createContext, useState } from 'react';
 import * as ScreenOrientation from 'expo-screen-orientation';
-import { View, Text } from 'react-native';
+import { View, Text, SafeAreaView, ScrollView } from 'react-native';
 import { getBoard } from '@/requests/getBoard';
 import { BoardContext } from '@/contexts/boardContext';
 import { TaskBoard } from '@/components/TaskBoard';
 import { Header } from '@/components/Header';
 import { Column } from '@/components/Column';
+import { Ticket } from '@/components/Ticket';
 
 export type ColumnType = {
   Name: string;
@@ -13,10 +14,9 @@ export type ColumnType = {
 }
 
 export type TicketType = {
-  Name: string;
+  Title: string;
   Position: number;
-  Board_Id: number;
-  Ticket_Id: number;
+  Column: string;
   Description: string;
 }
 
@@ -51,10 +51,16 @@ const Board = () => {
   }, []);
 
   return (
-    <BoardContext.Provider value={board}>
-      <Header />
-      <Column />
-    </BoardContext.Provider>
+    <SafeAreaView style={{ flex: 1 }}>
+    < ScrollView>
+        <BoardContext.Provider value={board}>
+        <Header />
+          <ScrollView horizontal={true}>
+            <Column />
+          </ScrollView>
+        </BoardContext.Provider>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
