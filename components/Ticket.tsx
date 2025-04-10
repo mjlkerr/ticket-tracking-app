@@ -18,25 +18,25 @@ export const Ticket = () => {
         console.log('These are the Tickets:', Tickets);
     }, [board]);
  
-    return (
-        <View style={{ 
-            flex: 1, 
-            flexDirection: 'row', 
-            justifyContent: 'space-around', 
-            backgroundColor: '#f8f8f8',
-            borderWidth: 1,
-            borderColor: '#ccc', 
-            marginTop: 10 }}>
-            {Tickets.map((Ticket, index) => (
-                <View key={index} 
-                    style={{ 
-                    margin: 10,
-                    borderWidth: 1,
-                    width: '20%',
-                    borderColor: '#ccc', }}>
-                    <Text style={{alignSelf: 'center'}}>{Ticket.Title}</Text>
-                </View>
-            ))}
-        </View>
-    )
+    // return (
+    //     <View style={{ 
+    //         flex: 1, 
+    //         flexDirection: 'row', 
+    //         justifyContent: 'space-around', 
+    //         backgroundColor: '#f8f8f8',
+    //         borderWidth: 1,
+    //         borderColor: '#ccc', 
+    //         marginTop: 10 }}>
+    //         {Tickets.map((Ticket, index) => (
+    //             <View key={index} 
+    //                 style={{ 
+    //                 margin: 10,
+    //                 borderWidth: 1,
+    //                 width: '20%',
+    //                 borderColor: '#ccc', }}>
+    //                 <Text style={{alignSelf: 'center'}}>{Ticket.Title}</Text>
+    //             </View>
+    //         ))}
+    //     </View>
+    // )
 }

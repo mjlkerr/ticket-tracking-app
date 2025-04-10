@@ -26,7 +26,7 @@ export type BoardType = {
   Board_Name: string;
   BoardDescription: string;
   description: string;
-  Columns: ColumnType[];
+  Status_Columns: ColumnType[];
   Tickets: TicketType[];
 }
 const Board = () => {
